@@ -1,6 +1,7 @@
 <launch>
+ 
+<group ns="planner">
   <arg name="output" default="screen"/>
-
   <remap from="odom" to="odometry/filtered"/>
   <remap from="cmd_vel" to="nav_vel"/>
 
@@ -23,6 +24,8 @@
               file="$(find leo_navigation)/config/move_base/costmaps/local_costmap.yaml"/>
     <rosparam command="load"
               file="$(find leo_navigation)/config/move_base/costmaps/global_costmap.yaml"/>
+    <rosparam command="load"
+              file="$(find leo_navigation)/config/move_base/costmaps/local_costmap_params_3d.yaml"/>
 
     <!-- planners -->
     <rosparam command="load"
@@ -30,4 +33,5 @@
     <rosparam command="load"
               file="$(find leo_navigation)/config/move_base/planners/global_planner.yaml"/>
   </node>
+</group>  
 </launch>
